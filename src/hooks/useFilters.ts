@@ -14,7 +14,7 @@ export function useFilters() {
     } else {
       params.set(key, value);
     }
-    params.delete('page');
+    if (key !== 'page') params.delete('page');
     router.push(`/catalog?${params.toString()}`);
   }, [searchParams, router]);
 
