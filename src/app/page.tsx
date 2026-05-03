@@ -24,7 +24,7 @@ export default function HomePage() {
     .slice(0, 6);
 
   return (
-    <main className="max-w-6xl mx-auto px-5 py-6">
+    <main className="max-w-6xl mx-auto px-4 sm:px-5 py-6">
       <section className="mb-6">
         <Hero totalProducts={totalProducts} totalBrands={totalBrands} />
       </section>

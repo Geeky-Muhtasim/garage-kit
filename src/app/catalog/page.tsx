@@ -13,6 +13,7 @@ import { SortSelect } from '@/components/catalog/SortSelect';
 import { Pagination } from '@/components/catalog/Pagination';
 import { ActiveFilterTags } from '@/components/catalog/ActiveFilterTags';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { CatalogLayout } from '@/components/catalog/CatalogLayout';
 
 const PAGE_SIZE = 12;
 
@@ -76,18 +77,28 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
   const brands = getAllBrands();
   const priceRange = getPriceRange();
 
+  const selectedBrands = brand ? brand.split(',').filter(Boolean) : [];
+  const activeFilterCount =
+    (category ? 1 : 0) +
+    selectedBrands.length +
+    (minPrice ? 1 : 0) +
+    (maxPrice ? 1 : 0) +
+    (inStock ? 1 : 0);
+
   return (
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Catalog' }]} />
-      <div className="flex gap-4 px-5 py-5">
-        <Sidebar categories={categories} brands={brands} priceRange={priceRange} />
-        <main className="flex-1 min-w-0">
+      <CatalogLayout
+        sidebar={<Sidebar categories={categories} brands={brands} priceRange={priceRange} />}
+        activeFilterCount={activeFilterCount}
+      >
+        <main>
           <SortSelect total={total} page={page} pageSize={PAGE_SIZE} />
           <ActiveFilterTags />
           <ProductGrid products={paged} columns={3} />
           <Pagination total={total} pageSize={PAGE_SIZE} />
         </main>
-      </div>
+      </CatalogLayout>
     </>
   );
 }

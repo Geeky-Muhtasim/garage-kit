@@ -29,7 +29,7 @@ export default function DealsPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 py-6">
       {/* Hero banner */}
-      <div className="bg-surf border-[0.5px] border-bdr rounded-xl p-7 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-surf border-[0.5px] border-bdr rounded-xl p-5 sm:p-7 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-amber text-bg text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-widest">

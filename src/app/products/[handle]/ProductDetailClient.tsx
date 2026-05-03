@@ -47,10 +47,10 @@ export function ProductDetailClient({ product, related, isOEM }: Props) {
   return (
     <>
       {/* Two-column layout: image left, info right */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-5 py-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 px-4 sm:px-5 py-4 sm:py-5">
         {/* Left — Image gallery */}
         <div className="bg-surf border-[0.5px] border-bdr rounded-xl overflow-hidden">
-          <div className="h-56 bg-surf2 relative">
+          <div className="h-44 sm:h-56 bg-surf2 relative">
             <ProductImage
               src={product.image_url}
               alt={product.name}
@@ -98,7 +98,7 @@ export function ProductDetailClient({ product, related, isOEM }: Props) {
           <div className="bg-surf border-[0.5px] border-bdr rounded-lg overflow-hidden">
             {SPEC_ROWS.map(row => (
               <div key={row.key} className="flex border-b-[0.5px] border-bdr last:border-0">
-                <div className="w-24 px-3 py-2 text-[10px] text-txt-3 bg-surf2 shrink-0 tracking-wide">
+                <div className="w-20 sm:w-24 px-3 py-2 text-[10px] text-txt-3 bg-surf2 shrink-0 tracking-wide">
                   {row.key}
                 </div>
                 <div className="px-3 py-2 text-[10px] text-txt font-mono">{row.value}</div>
@@ -162,7 +162,7 @@ export function ProductDetailClient({ product, related, isOEM }: Props) {
 
       {/* Description — ONLY appears here, below the two-column grid */}
       {product.description && (
-        <div className="px-5 mb-6">
+        <div className="px-4 sm:px-5 mb-6">
           <div className="bg-surf border-[0.5px] border-bdr rounded-lg p-4">
             <div className="flex gap-4 border-b-[0.5px] border-bdr mb-3 -mx-4 px-4">
               {['Description', 'Specifications', 'Compatibility'].map((tab, i) => (
@@ -186,7 +186,7 @@ export function ProductDetailClient({ product, related, isOEM }: Props) {
 
       {/* Related products */}
       {related.length > 0 && (
-        <div className="px-5 pb-10">
+        <div className="px-4 sm:px-5 pb-10">
           <h2 className="text-sm font-medium text-txt mb-3">Related products</h2>
           <ProductGrid products={related} columns={4} />
         </div>

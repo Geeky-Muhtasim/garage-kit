@@ -28,7 +28,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-5 py-6">
+    <div className="max-w-6xl mx-auto px-4 sm:px-5 py-6">
       <div className="flex items-center gap-3 mb-6">
         <h1 className="text-xl font-medium text-txt">Your Cart</h1>
         <span className="bg-surf2 border-[0.5px] border-bdr text-txt-2 text-xs font-mono px-2 py-0.5 rounded-full">
@@ -72,17 +72,22 @@ export default function CartPage() {
 
               {/* Qty + remove */}
               <div className="flex flex-col items-end gap-2 shrink-0">
-                <button
-                  onClick={() => removeFromCart(item.handle)}
-                  className="text-txt-3 hover:text-txt transition-colors"
-                  aria-label="Remove"
-                >
-                  <X size={14} />
-                </button>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-mono font-medium text-txt">
+                    {formatPrice(String(parseInt(item.price, 10) * item.quantity))}
+                  </p>
+                  <button
+                    onClick={() => removeFromCart(item.handle)}
+                    className="text-txt-3 hover:text-txt transition-colors"
+                    aria-label="Remove"
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
                 <div className="flex items-center border-[0.5px] border-bdr rounded-lg overflow-hidden">
                   <button
                     onClick={() => updateQty(item.handle, item.quantity - 1)}
-                    className="w-7 h-7 flex items-center justify-center text-txt-2 hover:bg-surf2 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center text-txt-2 hover:bg-surf2 transition-colors"
                   >
                     <Minus size={11} />
                   </button>
@@ -91,14 +96,11 @@ export default function CartPage() {
                   </span>
                   <button
                     onClick={() => updateQty(item.handle, item.quantity + 1)}
-                    className="w-7 h-7 flex items-center justify-center text-txt-2 hover:bg-surf2 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center text-txt-2 hover:bg-surf2 transition-colors"
                   >
                     <Plus size={11} />
                   </button>
                 </div>
-                <p className="text-sm font-mono font-medium text-txt">
-                  {formatPrice(String(parseInt(item.price, 10) * item.quantity))}
-                </p>
               </div>
             </div>
           ))}

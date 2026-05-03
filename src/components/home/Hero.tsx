@@ -13,14 +13,14 @@ export function Hero({ totalProducts, totalBrands }: HeroProps) {
   ];
 
   return (
-    <div className="bg-surf border-[0.5px] border-bdr rounded-xl p-7 grid grid-cols-1 lg:grid-cols-[1fr_180px] gap-6 items-center">
+    <div className="bg-surf border-[0.5px] border-bdr rounded-xl p-4 sm:p-7 grid grid-cols-1 lg:grid-cols-[1fr_180px] gap-4 sm:gap-6 items-center">
       {/* Left */}
       <div>
         <p className="text-[10px] uppercase tracking-widest text-amber mb-2 flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-amber inline-block" />
           Authentic Japanese auto parts · Dhaka
         </p>
-        <h1 className="text-2xl font-medium leading-tight text-txt mb-2">
+        <h1 className="text-xl sm:text-2xl font-medium leading-tight text-txt mb-2">
           Every part your{' '}
           <em className="not-italic text-amber">Japanese car</em>{' '}
           needs
@@ -46,7 +46,7 @@ export function Hero({ totalProducts, totalBrands }: HeroProps) {
       </div>
 
       {/* Right — stat cards */}
-      <div className="flex lg:flex-col gap-2">
+      <div className="flex flex-wrap sm:flex-nowrap lg:flex-col gap-2">
         {stats.map(stat => (
           <div
             key={stat.label}

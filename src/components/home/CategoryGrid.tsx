@@ -38,7 +38,7 @@ interface CategoryGridProps {
 
 export function CategoryGrid({ categories }: CategoryGridProps) {
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
       {categories.map(cat => {
         const Icon = ICON_MAP[cat.name] ?? Package;
         const displayName = DISPLAY_NAMES[cat.name] ?? toTitleCase(cat.name);
